@@ -11,7 +11,7 @@ using namespace metal;
 
 
 // Set DEBUG_MODE to true to test the app on iOS. This will show you the expected output.
-#define DEBUG_MODE false
+#define DEBUG_MODE true
 
 
 constant mtlfloat4x4 bezierMatrix = mtlfloat4x4(-1, 3,-3,1,
@@ -45,9 +45,9 @@ vertex MTLVertex bezier_fill_vertex(constant mtlfloat4x2 *segmentArray [[buffer(
 
 #if DEBUG_MODE
 fragment MTLFragment bezier_fill_fragment(MTLVertex vertexIn [[stage_in]],
-                                          mtlcolor color0 [[color(0)]],
-                                          mtlcolor color1 [[color(1)]],
-                                          mtlcolor color2 [[color(2)]]) {
+                                          mtlcolor color0 [[color(0), raster_order_group(0)]],
+                                          mtlcolor color1 [[color(1), raster_order_group(0)]],
+                                          mtlcolor color2 [[color(2), raster_order_group(0)]]) {
 
     mtlcolor source = vertexIn.color;
     mtlcolor outColor0 = color0;
