@@ -11,7 +11,7 @@ using namespace metal;
 
 
 // Set DEBUG_MODE to true to test the app on iOS. This will show you the expected output.
-#define DEBUG_MODE true
+#define DEBUG_MODE false
 
 
 constant mtlfloat4x4 bezierMatrix = mtlfloat4x4(-1, 3,-3,1,
